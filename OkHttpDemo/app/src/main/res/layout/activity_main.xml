@@ -14,8 +14,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/get"
         android:text="Get" />
-    <TextView
+    <Button
         android:layout_below="@+id/get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/post"
+        android:text="post" />
+    <TextView
+        android:layout_below="@+id/post"
         android:id="@+id/response_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

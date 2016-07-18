@@ -1,8 +1,6 @@
 package com.irvingryan.okhttpdemo.http;
 
 
-import okhttp3.Response;
-
 /**
  * Created by Administrator on 2016/2/29 0029.
  */
@@ -12,7 +10,7 @@ public interface HttpsListener {
      * @param what 标志是哪个请求
      * @param response 相应结果
      */
-    void onSuccess(int what, Response response);
+    void onSuccess(int what, String response);
 
     /**
      * 请求失败

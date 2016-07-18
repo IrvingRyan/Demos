@@ -10,14 +10,13 @@ import android.widget.TextView;
 import com.irvingryan.okhttpdemo.http.APIManager;
 import com.irvingryan.okhttpdemo.http.HttpsListener;
 
-import java.io.IOException;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private String TAG="MainActivity";
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private String TAG = "MainActivity";
+    @Bind(R.id.post)
+    Button post;
 
     @Bind(R.id.get)
     Button get;
@@ -34,30 +33,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         get.setOnClickListener(this);
+        post.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.get:
                 getNumId();
+                break;
+            case R.id.post:
+                getTestSubject();
                 break;
         }
     }
 
-    private void getNumId() {
-        APIManager.getInstance().getPhoneLocale(httpsListener,"15210011578");
+    private void getTestSubject() {
+        APIManager.getInstance().requestTestStore(1, httpsListener);
     }
-    HttpsListener httpsListener=new HttpsListener() {
+
+    private void getNumId() {
+        APIManager.getInstance().getPhoneLocale(0, httpsListener, "15210011578");
+    }
+
+    HttpsListener httpsListener = new HttpsListener() {
         @Override
-        public void onSuccess(int what, Response response) {
-            try {
-                //这个方法只能获取一次，再次获取为空
-                String responseString=response.body().string();
-                Log.i(TAG,"httpsListener onSuccess and response == "+responseString);
-                responseText.setText(responseString);
-            } catch (IOException e) {
-                e.printStackTrace();
+        public void onSuccess(int what, String response) {
+            if (what == 0) {
+                try {
+                    Log.i(TAG, "httpsListener onSuccess and response == " + response);
+                    responseText.setText(response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (what == 1) {
+                try {
+                    Log.i(TAG, "httpsListener onSuccess and response == " + response);
+                    responseText.setText(response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
