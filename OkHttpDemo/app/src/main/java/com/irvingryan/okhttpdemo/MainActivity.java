@@ -78,7 +78,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onFailed(int what, String url, Object tag, Exception exception, int responseCode, long networkMillis) {
-
+            if (what == 0) {
+                Log.i(TAG, "httpsListener onSuccess and response == " + exception);
+            } else if (what == 1) {
+                Log.i(TAG, "httpsListener onSuccess and response == " + exception);
+            }
         }
     };
 }
