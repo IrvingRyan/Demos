@@ -25,7 +25,7 @@ public class APIManager {
         Request request =new Request
                 .Builder()
                 .get()
-                .url("http://apis.baidu.com/apistore/mobilenumber/mobilenumber?phone="+phone)
+                .url(HttpConfig.PHONE_URL+phone)
                 .header("apikey","d76d18c11ec89bb47fdf511b5349b198")
                 .build();
         HttpsRequest.getInstance().get(what,request,httpsListener);
@@ -37,7 +37,7 @@ public class APIManager {
                 .add("model","c1")
                 .build();
         Request request=new Request.Builder()
-                .url("http://api2.juheapi.com/jztk/query")
+                .url(HttpConfig.DRIVER_TEST_URL)
                 .post(requestBody)
                 .build();
         HttpsRequest.getInstance().post(what,request,httpsListener);
