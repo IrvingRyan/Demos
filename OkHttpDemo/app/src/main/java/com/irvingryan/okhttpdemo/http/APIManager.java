@@ -1,5 +1,11 @@
 package com.irvingryan.okhttpdemo.http;
 
+import android.util.Base64;
+import android.util.Log;
+
+import com.irvingryan.okhttpdemo.HttpsConfig;
+import com.irvingryan.okhttpdemo.SendOTP;
+
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -39,6 +45,27 @@ public class APIManager {
         Request request=new Request.Builder()
                 .url(HttpConfig.DRIVER_TEST_URL)
                 .post(requestBody)
+                .build();
+        HttpsRequest.getInstance().post(what,request,httpsListener);
+    }
+
+    public void requestOTP(int what, SendOTP sendOTP, HttpsListener httpsListener, boolean b) {
+//        Request<JSONObject> request = NoHttp.createJsonObjectRequest(HttpsConfig.TOKEN_API_URL, RequestMethod.POST);
+//        Request request = new JsonObjectRequest(HttpsConfig.TOKEN_API_URL, RequestMethod.POST);
+//        request.setHeader("Authorization", "Basic " + Base64.encodeToString("pZ9XRYvpZmuLDO2hWHKzfHkPI6sa:8169i1UTBMESTYS_ZbLhS3WuOLoa".getBytes(), Base64.DEFAULT));
+//        request.add("grant_type", "grant_type");
+//        Gson gson = new Gson();
+//        RequestBody requestBody=RequestBody.create(MediaType.parse("text/x-markdown; charset=utf-8"),gson.toJson(sendOTP));
+        RequestBody requestBody=new FormBody.Builder()
+                .add("grant_type","client_credentials")
+                .build();
+        String authorization="Basic " + Base64.encodeToString("pZ9XRYvpZmuLDO2hWHKzfHkPI6sa:8169i1UTBMESTYS_ZbLhS3WuOLoa".getBytes(), Base64.DEFAULT);
+        authorization=authorization.replace("\n","");
+        Log.i("ywt","Authorization is "+authorization);
+        Request request=new Request.Builder()
+                .url(HttpsConfig.TOKEN_API_URL)
+                .post(requestBody)
+                .header("Authorization",authorization)
                 .build();
         HttpsRequest.getInstance().post(what,request,httpsListener);
     }

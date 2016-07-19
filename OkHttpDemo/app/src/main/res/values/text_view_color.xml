@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<color name="default_4e5465">#4e5465</color>
+<color name="default_9095a2">#9095a2</color>
+<color name="default_28d093">#28d093</color>
+<color name="default_293546">#293546</color>
+<color name="default_383838">#383838</color>
+<color name="default_32aa74">#32aa74</color>
+<color name="default_363636">#363636</color>
+<color name="default_dbdbdb">#dbdbdb</color>
+<color name="default_51e0ac">#51e0ac</color>
+<color name="default_ededed">#ededed</color>
+<color name="default_ffffff">#ffffff</color>
+<color name="default_f3e6de">#f3e6de</color>
+<color name="default_58585a">#58585a</color>
+
+    <array name="titleColor" >
+        <item type = "color">#5AC7B6</item>
+        <item type = "color">#27CFC4</item>
+        <item type = "color">#EAD442</item>
+        <item type = "color">#97A9D8</item>
+        <item type = "color">#6181E6</item>
+        <item type = "color">#50DFAC</item>
+    </array>
+
+</resources>

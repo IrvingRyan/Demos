@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="country_code_error">The country code %d is wrong!</string>
+    <string name="can_not_get_code">Cannot get the country code!</string>
+    <string name="not_network_notify">Hey there, no Internet connection detected. Sorry but you won\'t be able sign up/login with us. Please try again later. </string>
+    <string name="request_fail_notify">We are not able to reach pfingo server.\n Please note that minutes and credit balance displayed may not be up-to-date.</string>
+    <string name="country_code_not_support">Hey there, mobile number format provided does not match our database.\n Mind giving us the correct number?</string>
+    <string name="need_number_tips">I see what you did there.\n To use pfingo,we need your mobile number to begin with.</string>
+    <string name="not_use_pfingo">While we would love to extend pfingo service to all, there are certain countries which are currently not supported.\n Stay tune and it will be available in our future releases.</string>
+    <string name="request_otp_error_tips">We are not able to generate an OTP for the time being. \n Reference:%s</string>
+    <string name="request_otp_failure_tips">We are not able to generate an OTP for the time being.\n Please try again later.</string>
+    <string name="request_verify_otp_error_tip">We are not able to verify the OTP.\n Reference %s</string>
+    <string name="request_verify_otp_failure_tips">We are not able to verify the OTP.\n Please try again later.</string>
+    <string name="sip_login_error">User Registration Unsuccessful.\n Please try again.</string>
+    <string name="sip_login_time_out">User Registration Timeout.\n Please try again.</string>
+    <string name="no_network_detected_msg">Hey there, no Internet connection detected.\n Please note that we may not be able to help you make any calls.</string>
+    <string name="no_sip_network_detected_msg">We are not able to reach pfingo server.\n Please note that we may not be able to help you make any calls.</string>
+    <string name="press_back_quit">Press [Back] again to exit pfingo.</string>
+    <string name="not_connection_your_call">We are not able to connect your call at this moment.\n Please try again later.</string>
+    <string name="no_more_history">No Records.</string>
+    <string name="how_do_call">I see what you did there.\n To make a call, tap on contacts on your contact list or dial the number from the dialpad.</string>
+    <string name="start_debuger_mode">The debuger mode is started!</string>
+
+</resources>

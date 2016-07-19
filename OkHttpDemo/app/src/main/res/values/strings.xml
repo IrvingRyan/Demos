@@ -1,3 +1,268 @@
 <resources>
-    <string name="app_name">OkHttpDemo</string>
+    <!--欢迎界面-->
+    <string name="app_name">pfingo_staging</string>
+    <!--登录界面，发送OTP界面-->
+    <string name="I_have_read">I have read,understood and accepted the Terms &amp; Conditions of the services.</string>
+    <string name="terms">Terms &amp; Conditions</string>
+    <string name="welcome_to_pfingo">Welcome to pfingo</string>
+    <string name="terms_rul">http://tiny.cc/pfingotnc</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="active_service">Activate service</string>
+    <string name="no_simcard_detected">No sim card detected!</string>
+    <string name="call_me">Call Me For OTP</string>
+    <!--登录界面，验证otp-->
+    <string name="input_opt">Enter OTP</string>
+    <string name="Verify">Verify</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="wait_for_otp">Wait for OTP</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="otp_err_403">Forbidden. This phone has ask OTP sending too much
+        so system lock this phone for security.Please try after 27 mins.</string>
+    <string name="otp_err_429">Request limit. This phone has ask OTP sending too much so system lock this phone for security.Please try after 30 mins.</string>
+
+    <!--选择国家界面-->
+    <string name="choose_country_code">Select Country</string>
+    <!--用户引导界面-->
+    <string name="start_use">START TALKING!</string>
+    <!--主界面-->
+    <string name="Contacts">Contacts</string>
+    <string name="no_network_detected">No network detected!</string>
+
+    <string name="no_contact_tips">no contact</string>
+    <string name="Call_Logs">Call Logs</string>
+    <!--<string name="xlistview_header_hint_normal">下拉刷新</string>-->
+    <string name="xlistview_header_hint_normal"> pull-to-refresh</string>
+    <!--<string name="xlistview_header_hint_ready">松开刷新数据</string>-->
+    <string name="xlistview_header_hint_ready">Release to  refresh.</string>
+    <!--<string name="xlistview_header_hint_loading">正在加载...</string>-->
+    <string name="xlistview_header_hint_loading">loading...</string>
+    <!--<string name="xlistview_header_last_time">上次更新时间：</string>-->
+    <string name="xlistview_header_last_time">The last update time：</string>
+    <!--<string name="xlistview_footer_hint_normal">查看更多</string>-->
+    <string name="xlistview_footer_hint_normal">See More</string>
+    <!--<string name="xlistview_footer_hint_ready">松开载入更多</string>-->
+    <string name="xlistview_footer_hint_ready">Release to load more.</string>
+    <string name="unknown">Unknown</string>
+    <string name="Me">Me</string>
+    <string name="account_information">Account Information</string>
+    <string name="registered_number">Registered Number</string>
+    <string name="subscriber_packages">Subscribed Package(s):</string>
+    <string name="free">Free</string>
+    <string name="free_singapore_minutes">Singapore Minutes</string>
+    <string name="free_international_minutes">International Minutes</string>
+    <string name="cannot_get">cannot get</string>
+    <string name="singapore_premium">Singapore Premium</string>
+    <string name="international_premium">International Premium</string>
+    <string name="singapore_premium_desc">Unlimited* Singapore calls and \n20 minutes International calls</string>
+    <string name="Subscribe_Now">Subscribe\n\tNow</string>
+    <string name="pay_per_use">Pay per Use</string>
+    <string name="Credit_Balance">Credit Balance</string>
+    <string name="Valid_Until">Valid till</string>
+    <string name="international_premium_desc">Unlimited* Singapore calls and \n1000 minutes International calls</string>
+    <string name="add_more">\tAdd \tMore</string>
+    <string name="billing_and_payment">Transaction History</string>
+    <string name="Singapore_Minutes">Singapore Minutes</string>
+    <string name="International_Minutes">International Minutes</string>
+    <string name="Subscribe_Period">Subscribe Period</string>
+    <string name="update_message">You may not be able to make calls with your current pfingo App version and some of the functions may not work well.Proceed with App update?</string>
+    <string name="update_yes">Sure</string>
+    <string name="update_no">Later</string>
+    <string name="edit_number_before_call">Edit number before call</string>
+    <string name="view_contact">View contact</string>
+    <string name="add_contact">add contact</string>
+    <string name="search_hint">Search by name or number</string>
+    <string name="subjected">* The balance is subjected to fair usage policy</string>
+    <string name="update_title">Update Notice</string>
+    <string name="With_Calling_Card">With Calling Card</string>
+    <string name="Online">Online</string>
+    <string name="Unlimited">Unlimited*</string>
+    <string name="limited">Limited</string>
+    <string name="mins">&#160;mins</string>
+    <string name="callthrough_notify">Crystal Clear Quality</string>
+    <string name="no_local_call_charges">No Local Call Charges</string>
+    <string name="call_though_notify_hide">Premium calls with fraction of the price while staying connected.</string>
+    <string name="callback_notify_hide">Why use your mobile data or local minutes when we can call you back instead?</string>
+    <string name="call_phone_notify">Call with Mobile Data/WiFi</string>
+    <string name="call_phone_notify_hide">No fuss 1-click to call when you have reliable Internet Connection.</string>
+    <string name="help_me_choose">Help me choose</string>
+    <string name="help_me_choose_click">Hide details</string>
+    <string name="expire_date">-&#160;-&#160;/&#160;-&#160;-&#160;</string>
+    <!--设置界面-->
+    <string name="setting">Settings</string>
+    <string name="setting_call">CALL</string>
+    <string name="default_country_code">Default Country Code</string>
+    <string name="about">ABOUT</string>
+    <string name="setting_guid">Intro</string>
+    <string name="about_pfingo">About pfingo</string>
+    <string name="faq">FAQ</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="report_bug">Report a bug</string>
+    <string name="version">Version</string>
+    <!--通话界面-->
+    <string name="Approximate_talk_time">Approximate talk time :</string>
+    <string name="incoming">\tInComing</string>
+    <string name="connecting">&#160;&#160;&#160;Connecting</string>
+    <string name="ringing">\t\tRinging</string>
+    <string name="Connected">Connected</string>
+    <string name="mobile">Mobile : </string>
+    <!--等待回拨界面-->
+    <string name="wait_tip">We\'ll Call You Back Shortly.</string>
+    <string name="call_back_wait_tip">Sit Back and Relax.</string>
+    <!--选择充值金额界面-->
+    <string name="add_more_credits">Add More Credits</string>
+    <string name="pick_amount">Pick a credit amount (SGD)</string>
+    <string name="add_more_credits_desc">*pfingo credits has 6 months of validity upon purchase. Every subsequent purchase extends existing validity to another 6 months from the date of purchase.</string>
+    <string name="next">Next</string>
+    <string name="close_notice">Credit balance top up is in progress.Would you like to exit?</string>
+    <string name="close_title">Exit Notice</string>
+    <!--充值方式选择界面-->
+    <string name="order_total">Order Total:</string>
+    <string name="credit_to">Credit to:</string>
+    <string name="Pick_a_payment_method">Pick a payment method</string>
+    <string name="charge_desc">Your card will be charged in SGD</string>
+    <string name="Proceed">Proceed with Secured Payment</string>
+    <string name="Calling_Card">Calling Card</string>
+    <string name="version_notice">Notice</string>
+    <string name="version_notice_content">Sorry，Your OS version is too old to complete payment , Would you like choose a browser to complete ?</string>
+    <!--套餐详情页面-->
+    <string name="subscription">Subscription</string>
+    <string name="subscription_period">Subscription period (SGD)</string>
+    <string name="subscription_period_desc">Sign me up for recurring monthly subscription.</string>
+    <string-array name="package_detail">
+        <item>Subscribe to unlimited* Singapore calls and 20 minutes of International calls at as low as S$ 4.90 a month</item>
+        <item>Subscribe to unlimited* Singapore calls and 1000 minutes of International calls at as low as S$ 12.90 a month</item>
+    </string-array>
+    <!--充值成功失败页面-->
+    <string name="thank_you">Thank you for purchasing pfingo credits.You may now use your credits to make Singapore and International Calls.</string>
+    <string-array name="payment_topic_success">
+        <item>Thank you for %s pfingo credits.You may now use your credits to make Singapore and International Calls.</item>
+        <item>You may check Billing and Payment for your purchase details.</item>
+        <item>Subscription is successful. S$ %s charged to your credit card/PayPal account.</item>
+        <item>S$ %s credits added successfully.</item>
+    </string-array>
+    <string-array name="payment_topic_fail">
+        <item>Adding more credits was not successful. Your credit card/PayPal account has not been charged.</item>
+    </string-array>
+    <string name="payment_topic_fail">Top up was not successful. Your account is not being charged.</string>
+    <string name="you_may_check_purchase_details">You may check Billing and Payment for your purchase details.</string>
+    <!--账单查询界面-->
+    <string name="billing_notice">No Transaction History Recorded.</string>
+    <string name="Transaction_Amount">Transaction Amount:</string>
+    <string name="pay_per_use_credit">pfingo\'s Pay-per-Use Credit Top Up</string>
+    <!--Paypal界面-->
+    <string name="please_wait">Please wait while we redirect you to PayPal…</string>
+    <!--通话卡充值界面-->
+    <string name="Enter_Calling_Card">Enter Calling Card</string>
+    <string name="Use_Card">Top Up</string>
+    <string name="calling_card_payment">Calling Card Payment</string>
+    <string name="internet_not_available">Internet Connection is Not Available.</string>
+    <string name="offline_Top_Up_notice">Would you like to proceed with offline Top Up?</string>
+    <string name="enter_calling_card_number">Please Enter 16 digit Calling Card number</string>
+    <string name="not_successful">Top Up was Not Successful</string>
+    <string name="btn_back">Back</string>
+    <string name="call_hotline">Call Hotline</string>
+    <string name="not_successful_notice">Please check your Calling Card number and try again.\n \nIf problem persists, please call pfingo Customer Hotline for assistance.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="okay">Okay</string>
+    <string name="top_up_successful">Top up successful.</string>
+    <string name="new_balance">Your new balance is:</string>
+    <string name="top_up_in_progress">Top up in progress</string>
+
+    <string name="hold_on">Hold on a Sec</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="crash_toast_text">app_crash</string>
+
+    <string name="gcm_defaultSenderId">545873096322</string>
+    <string name="dinpro_bold">dinpro_bold.ttf</string>
+    <string name="dinpro_light">dinpro_light.ttf</string>
+    <string name="dinpro_medium">dinpro_medium.ttf</string>
+    <string name="dinpro_regular">dinpro_regular.ttf</string>
+    <string name="exljbris_Museo_300">exljbris - Museo-300.otf</string>
+    <string name="open_sans_semibold">open-sans.semibold.ttf</string>
+    <string name="Museo700_Regular">Museo700-Regular.ttf</string>
+    <string name="open_sans_regular">open-sans.regular.ttf</string>
+    <string name="debuger_setting">Debuger_Settings</string>
+    <string name="contact_item_name">byron</string>
+    <string name="contact_item_number_type">mobile</string>
+    <string name="contact_item_default_number">+65 0000 0000 000</string>
+    <string name="incall_notif_active">Audio call ongoing</string>
+    <string name="talk_time">\tUnlimited</string>
+
+    <string name="byron">byron</string>
+    <string name="no_history">no history</string>
+    <string name="call_plans">Call Plans</string>
+    <string name="your_account">Your Account</string>
+    <string name="top_up">Top-up</string>
+    <string name="transfer">Transfer</string>
+    <string name="valid_till">Valid till</string>
+    <string name="enter_number">Enter the mobile number you use with pfingo</string>
+    <string name="refer_a_friend_info">Both parties can get free minutes when \nyour friend enters this Refer Code:</string>
+
+    <string name="default_tiem">30s</string>
+    <string name="default_time">30s</string>
+    <string name="active_accpunt">Activating your account</string>
+    <string name="insufficient_credit">Insufficient Credit!</string>
+    <string name="insufficient_details">You have insufficient credit
+        to complete the pfingo call.you phone native call will be invoked,
+        and your telecom provider\'s call changes may apply. Do you wish continue?</string>
+    <string name="animation">animation</string>
+    <string name="call_reson">call reson</string>
+    <string name="expiry_time">Expiry Time Detail</string>
+    <string name="chose_color">chose color</string>
+    <string name="restore_color">restore color</string>
+    <string name="notify">Notifycation</string>
+
+    <string name="facebook_app_id">1733135520240100</string>
+    <string name="btn_ip">IP2IP</string>
+    <string name="btn_callthrough">Call Through</string>
+    <string name="btn_phone">Direct Call</string>
+    <string name="btn_callback">Callback</string>
+    <string name="btn_exit">EXIT</string>
+    <!-- JazzyViewPager -->
+    <string-array name="jazzy_effects">
+        <item>Standard</item>
+        <item>Tablet</item>
+        <item>CubeIn</item>
+        <item>CubeOut</item>
+        <item>FlipVertical</item>
+        <item>FlipHorizontal</item>
+        <item>Stack</item>
+        <item>ZoomIn</item>
+        <item>ZoomOut</item>
+        <item>RotateUp</item>
+        <item>RotateDown</item>
+        <item>Accordion</item>
+    </string-array>
+    <string name="title_activity_call_plans">CallPlansActivity</string>
+    <string name="title_activity_top_up">TopUpActivity</string>
+    <string name="login_another_device">Your account has login another device!This will logout.</string>
+    <string name="account_force_logout">Sorry,your account can not be found in our server.</string>
+    <string name="account_error_force_logout">Sorry,your account login failed,please try again.</string>
+
+    <string name="transaction_history">Transaction History</string>
+
+    <!--Balance Transfer-->
+    <string name="balance_transfer">Balance Transfer</string>
+    <string name="balance_transfer_title">Balance Transfer</string>
+    <string name="recipient_mobile_number">Recipient mobile number</string>
+    <string name="amount_sgd">Amount (SGD)</string>
+    <string name="transfer_verify_message">You are transferring S$[amount] to +[country_code] [to_number]. Do you wish to continue?</string>
+    <string name="transfer_failed">Unsuccessful</string>
+    <string name="transfer_failed_message">Please try again. If problem persists, please call pfingo customer service hotline for assistance.</string>
+    <string name="transfer_successful">Successful</string>
+    <string name="transfer_successful_message">Your new balance is S$[new_balance].</string>
+
+    <!--public string-->
+    <string name="cancel">No</string>
+    <string name="confirm">Yes</string>
+    <string name="close">Close</string>
+
+
+    <string-array name="up_down_grade">
+        <item>You are currently on Singapore Premium and will be upgraded to International Premium with 1,000 minutes of International Calls. Would you like to proceed?</item>
+        <item>You are currently on International Premium and will be downgraded to Singapore Premium with only 20 minutes of International Calls. Would you like to proceed?</item>
+    </string-array>
 </resources>

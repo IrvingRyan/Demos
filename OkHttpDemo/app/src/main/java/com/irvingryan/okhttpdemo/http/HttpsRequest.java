@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.X509TrustManager;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -81,6 +85,11 @@ public class HttpsRequest {
     }
     public void post(final int what, final Request request, final HttpsListener httpsListener){
         Log.i(TAG,"main thread id is "+Thread.currentThread().getId());
+        SSLContext sslContext = SSLContextUtils.getSSLContext();
+        if (sslContext != null) {
+            SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+            client.newBuilder().sslSocketFactory(sslSocketFactory, (X509TrustManager) SSLContextUtils.trustManagers);
+        }
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

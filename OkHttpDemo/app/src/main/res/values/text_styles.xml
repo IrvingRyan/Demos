@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="welcome_to_pfingo">
+        <item name="android:textSize">31.33sp</item>
+        <item name="android:text">@string/welcome_to_pfingo</item>
+        <item name="android:textColor">@color/welcome_pfingo</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="customFont">@string/exljbris_Museo_300</item>
+    </style>
+
+    <style name="normal_textView">
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+        <item name="android:textColor">@color/setting_txt_color</item>
+
+
+    </style>
+
+
+</resources>

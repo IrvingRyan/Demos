@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <translate
+        android:detachWallpaper="true"
+        android:duration="400"
+        android:fromYDelta="100%"
+        android:interpolator="@android:interpolator/anticipate"
+        android:startOffset="10"
+        android:toYDelta="0"
+        android:zAdjustment="normal" />
+</set>

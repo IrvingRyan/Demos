@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="only_support_singapore">Callback is currently only available for Singapore mobile numbers.\nStay tune and it will be available in our future releases.</string>
+    <string name="not_support_callyourself">I see what you did there.\nUnfortunately, pfingo does not support calling your own number.</string>
+    <string name="not_support_othercountry">While we would love to extend pfingo service to all, the country you have dialed to is currently not supported. \nStay tune and it will be available in our future releases.</string>
+    <string name="not_support_database">Hey there, the dialed mobile number format does not match our database. \nMind checking the format?</string>
+    <string name="not_support_transfer_yourself">You cannot transfer balances to your own mobile number.</string>
+    <string name="cannot_connect">It\'s not you, it\'s us.\nWe are unable to connect your call.\nPlease try again later.</string>
+    <string name="high_call_traffic">It\'s not you, it\'s us.\nWe are experiencing high call traffic.\nPlease try again later.</string>
+    <string name="check_number">I see what you did there.\nTo use pfingo,we need your mobile number to begin with.</string>
+    <string name="network_changed">Network has changed,please try again.</string>
+    <string name="bluetooth_notice">Bluetooth is open,please close it to use speaker.</string>
+    <string name="callback_fail">Balance is insufficient, please prepaid phone before use.</string>
+
+    <string name="amount_format_error">The amount format is error.</string>
+    <string name="balance_not_enough">You have insufficient balance for the transfer. Please key in an amount which is equal or lower than your current credit balance.</string>
+    <string name="number_not_match">Invalid mobile number. Please key in a valid mobile number to continue.</string>
+    <string name="country_not_match">The country code you have entered is not supported for balance transfer at the moment.Please enter another country code and try again.</string>
+    <string name="less_than_2_sgd">Minimum balance transfer is S$2.00</string>
+    <string name="no_network_detected_new">Internet connection is not available.Please check your connection and try again later.</string>
+</resources>
