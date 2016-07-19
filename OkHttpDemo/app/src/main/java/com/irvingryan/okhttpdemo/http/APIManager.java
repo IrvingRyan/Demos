@@ -50,12 +50,6 @@ public class APIManager {
     }
 
     public void requestOTP(int what, SendOTP sendOTP, HttpsListener httpsListener, boolean b) {
-//        Request<JSONObject> request = NoHttp.createJsonObjectRequest(HttpsConfig.TOKEN_API_URL, RequestMethod.POST);
-//        Request request = new JsonObjectRequest(HttpsConfig.TOKEN_API_URL, RequestMethod.POST);
-//        request.setHeader("Authorization", "Basic " + Base64.encodeToString("pZ9XRYvpZmuLDO2hWHKzfHkPI6sa:8169i1UTBMESTYS_ZbLhS3WuOLoa".getBytes(), Base64.DEFAULT));
-//        request.add("grant_type", "grant_type");
-//        Gson gson = new Gson();
-//        RequestBody requestBody=RequestBody.create(MediaType.parse("text/x-markdown; charset=utf-8"),gson.toJson(sendOTP));
         RequestBody requestBody=new FormBody.Builder()
                 .add("grant_type","client_credentials")
                 .build();
