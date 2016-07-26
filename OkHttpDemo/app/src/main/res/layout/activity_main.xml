@@ -20,6 +20,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/post"
         android:text="post" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/cancelAll"
+        android:text="Cancel" />
     <TextView
         android:layout_below="@+id/post"
         android:id="@+id/response_text"
