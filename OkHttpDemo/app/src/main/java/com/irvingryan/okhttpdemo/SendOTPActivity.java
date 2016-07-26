@@ -61,7 +61,7 @@ public class SendOTPActivity extends BaseActivity implements View.OnClickListene
                 SendOTP sendOTP = new SendOTP();
                 sendOTP.setUserId(countryCode.getText().toString() + editNumber.getText().toString());
                 sendOTP.setMethod("SMS");
-                APIManager.getInstance().requestOTP(WHAT_REQUEST_OTP, sendOTP, httpsListener, false);
+                APIManager.getInstance().requestToken(WHAT_REQUEST_OTP, sendOTP, httpsListener, false);
                 break;
         }
     }

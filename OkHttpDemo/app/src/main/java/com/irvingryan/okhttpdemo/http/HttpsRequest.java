@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
@@ -22,11 +23,13 @@ import okhttp3.Response;
 public class HttpsRequest {
     private static final String TAG="HttpsRequest";
     private static HttpsRequest instance;
-    private final OkHttpClient client;
+    private OkHttpClient client;
     private Executor executor= Executors.newFixedThreadPool(3);
+    private static final int CONNECT_TIME_OUT = 20;
+    private static final int READ_TIME_OUT = 20;
+    private static final int WRITE_TIME_OUT = 20;
 
     private HttpsRequest(){
-        client=new OkHttpClient();
     }
 
     public static HttpsRequest getInstance() {
@@ -38,7 +41,22 @@ public class HttpsRequest {
         }
         return instance;
     }
-
+    public OkHttpClient getOkHttpClient() {
+        SSLContext sslContext = SSLContextUtils.getSSLContext();
+        SSLSocketFactory sslSocketFactory = null;
+        if (sslContext != null) {
+            sslSocketFactory = sslContext.getSocketFactory();
+        }
+        if (client == null) {
+            client = new OkHttpClient.Builder()
+                    .sslSocketFactory(sslSocketFactory, (X509TrustManager) SSLContextUtils.trustManagers)
+                    .connectTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)
+                    .readTimeout(READ_TIME_OUT, TimeUnit.SECONDS)
+                    .writeTimeout(WRITE_TIME_OUT, TimeUnit.SECONDS)
+                    .build();
+        }
+        return client;
+    }
     /**
      * 同步请求 自己开启线程的方式
      * @param what
@@ -51,7 +69,7 @@ public class HttpsRequest {
             public void run() {
                 Log.i(TAG,"request start");
                 try {
-                    final Response response=client.newCall(request).execute();
+                    final Response response=getOkHttpClient().newCall(request).execute();
                     if (response.isSuccessful()){
                         sendSuccessResponse(response.body().string(), httpsListener, what);
                     }else {
@@ -85,12 +103,7 @@ public class HttpsRequest {
     }
     public void post(final int what, final Request request, final HttpsListener httpsListener){
         Log.i(TAG,"main thread id is "+Thread.currentThread().getId());
-        SSLContext sslContext = SSLContextUtils.getSSLContext();
-        if (sslContext != null) {
-            SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
-            client.newBuilder().sslSocketFactory(sslSocketFactory, (X509TrustManager) SSLContextUtils.trustManagers);
-        }
-        client.newCall(request).enqueue(new Callback() {
+        getOkHttpClient().newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 try {
@@ -108,6 +121,7 @@ public class HttpsRequest {
 //                Log.i(TAG, "request success response message== " + response.message() + " response body ==");
                 try {
                     Log.i(TAG,"callback thread id is "+Thread.currentThread().getId());
+                    Log.i(TAG,"response header is "+response.headers().toString());
                     sendSuccessResponse(response.body().string(), httpsListener, what);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -115,5 +129,8 @@ public class HttpsRequest {
 //                httpsListener.onSuccess(what, response);
             }
         });
+    }
+    void cancel(){
+
     }
 }
