@@ -9,11 +9,14 @@ import android.widget.TextView;
 import com.irvingryan.okhttpdemo.framework.base.BaseActivity;
 import com.irvingryan.okhttpdemo.http.APIManager;
 import com.irvingryan.okhttpdemo.http.HttpsListener;
+import com.irvingryan.okhttpdemo.http.HttpsRequest;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
+    @Bind(R.id.cancelAll)
+    Button cancel;
     private String TAG = "MainActivity";
     @Bind(R.id.post)
     Button post;
@@ -34,6 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initView() {
         get.setOnClickListener(this);
         post.setOnClickListener(this);
+        cancel.setOnClickListener(this);
     }
 
     @Override
@@ -45,7 +49,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.post:
                 getTestSubject();
                 break;
+            case R.id.cancelAll:
+                cancelAllRequest();
+                break;
         }
+    }
+
+    private void cancelAllRequest() {
+        HttpsRequest.getInstance().getOkHttpClient().dispatcher().cancelAll();
     }
 
     private void getTestSubject() {

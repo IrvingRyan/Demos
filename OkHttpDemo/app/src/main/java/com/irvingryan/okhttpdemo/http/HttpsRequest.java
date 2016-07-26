@@ -73,7 +73,7 @@ public class HttpsRequest {
                     if (response.isSuccessful()){
                         sendSuccessResponse(response.body().string(), httpsListener, what);
                     }else {
-                        sendFailedResponse(response,httpsListener,what);
+                        sendFailedResponse(new Exception(),httpsListener,what);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -82,12 +82,12 @@ public class HttpsRequest {
         });
     }
 
-    private void sendFailedResponse(final Response response, final HttpsListener httpsListener, final int what) {
+    private void sendFailedResponse(final Exception e, final HttpsListener httpsListener, final int what) {
         MainThreadExecutor.getInstance().execute(new Runnable() {
             @Override
             public void run() {
-                Log.i(TAG, "request failed response message== " + response.message() + " response body ==");
-                httpsListener.onFailed(what,null,null,new IOException("request failed"),response.code(),0);
+                Log.i(TAG, "request failed response message== " + e.getMessage() + " response body ==");
+                httpsListener.onFailed(what,null,null,e,400,0);
             }
         });
     }
@@ -106,12 +106,8 @@ public class HttpsRequest {
         getOkHttpClient().newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                try {
-                    Log.i(TAG,"callback thread id is "+Thread.currentThread().getId());
-                    sendFailedResponse(call.execute(),httpsListener,what);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
+                Log.i(TAG,"callback thread id is "+Thread.currentThread().getId());
+                sendFailedResponse(e,httpsListener,what);
 //                Log.i(TAG, "request failed response message== " + call.request().body() + " response body ==");
 //                httpsListener.onFailed(what,call.request().url().toString(),call.request().tag(),e,400,0);
             }
@@ -129,8 +125,5 @@ public class HttpsRequest {
 //                httpsListener.onSuccess(what, response);
             }
         });
-    }
-    void cancel(){
-
     }
 }
