@@ -49,7 +49,7 @@ public class APIManager {
         HttpsRequest.getInstance().post(what,request,httpsListener);
     }
 
-    public void requestOTP(int what, SendOTP sendOTP, HttpsListener httpsListener, boolean b) {
+    public void requestToken(int what, SendOTP sendOTP, HttpsListener httpsListener, boolean b) {
         RequestBody requestBody=new FormBody.Builder()
                 .add("grant_type","client_credentials")
                 .build();
