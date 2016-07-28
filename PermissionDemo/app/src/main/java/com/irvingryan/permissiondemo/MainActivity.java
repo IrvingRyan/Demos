@@ -61,17 +61,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int permissionCheck = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA);
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "permission granted", Toast.LENGTH_SHORT).show();
-            grantPermission.setVisibility(View.GONE);
+            PermissionGranted();
         } else {
-            Toast.makeText(this, "permission not granted", Toast.LENGTH_SHORT).show();
-            grantPermission.setVisibility(View.VISIBLE);
+            PermissionNotGranted();
         }
+    }
+
+    private void PermissionNotGranted() {
+        Toast.makeText(this, "permission not granted", Toast.LENGTH_SHORT).show();
+        grantPermission.setVisibility(View.VISIBLE);
+    }
+
+    private void PermissionGranted() {
+        Toast.makeText(this, "permission granted", Toast.LENGTH_SHORT).show();
+        grantPermission.setVisibility(View.GONE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Log.i(TAG,"requestCode == "+requestCode+" permissions == "+ Arrays.toString(permissions)+" grantResults == "+Arrays.toString(grantResults));
+        switch (requestCode){
+            case PERMISSIONS_REQUEST_CAMERA:
+                if (grantResults[0]==PackageManager.PERMISSION_GRANTED)
+                    PermissionGranted();
+                else
+                    PermissionNotGranted();
+                break;
+        }
     }
 }
