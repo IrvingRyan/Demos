@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initView() {
         get.setOnClickListener(this);
         post.setOnClickListener(this);
-        cancel.setOnClickListener(this);
+
     }
 
     @Override
@@ -94,6 +94,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             } else if (what == 1) {
                 Log.i(TAG, "httpsListener onSuccess and response == " + exception);
             }
+        }
+
+        @Override
+        public void onCanceled(int what) {
+
         }
     };
 }

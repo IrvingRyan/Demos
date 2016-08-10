@@ -23,4 +23,6 @@ public interface HttpsListener {
      */
     void onFailed(int what, String url, Object tag, Exception exception, int responseCode, long networkMillis);
 
+    void onCanceled(int what);
+
 }
