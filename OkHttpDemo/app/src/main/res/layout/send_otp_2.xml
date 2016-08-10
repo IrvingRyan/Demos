@@ -6,103 +6,6 @@
     android:layout_marginRight="12dp"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="13.3333dp"
-        android:layout_marginRight="13.3333dp"
-        android:layout_weight="2">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9.333333dp">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom"
-                android:gravity="bottom">
-
-                <TextView
-                    android:id="@+id/country_code"
-                    style="@style/normal_textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="12dp"
-                    android:gravity="bottom"
-                    android:text="+86"
-                    android:textColor="@color/default_4e5465"
-                    android:textSize="18.66667sp" />
-
-                <ImageView
-                    android:id="@+id/chose_country_code_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignBottom="@+id/country_code"
-                    android:layout_gravity="bottom"
-                    android:layout_toRightOf="@+id/country_code"
-                    android:gravity="center"
-                    android:paddingBottom="0dp"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="14.666667sp"
-                    android:scaleType="centerInside"
-                    android:onClick="onClick"
-                    />
-
-                <View
-                    android:id="@+id/line"
-                    android:layout_width="2px"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/country_code"
-                    android:layout_alignTop="@id/country_code"
-                    android:layout_gravity="bottom"
-                    android:layout_toRightOf="@+id/chose_country_code_image"
-                    android:gravity="center_vertical" />
-
-                <EditText
-                    android:id="@+id/edit_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="12.666667dp"
-                    android:layout_toRightOf="@id/line"
-                    android:layout_marginRight="20dp"
-                    android:background="@null"
-                    android:gravity="bottom"
-                    android:hint="@string/mobile_number"
-                    android:phoneNumber="true"
-                    android:singleLine="true"
-                    android:maxLength="128"
-                    android:textColor="@color/default_4e5465"
-                    android:textColorHint="@color/text_hint_color"
-                    android:textSize="18.666667sp" />
-
-                <ImageView
-                    android:id="@+id/clear_edit_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/country_code"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignTop="@id/country_code"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:scaleType="centerInside"
-                    />
-            </RelativeLayout>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
         <Button
             android:id="@+id/active_service"
             android:layout_width="match_parent"
@@ -112,5 +15,12 @@
             android:text="@string/active_service"
             android:textSize="18.666667sp"
             android:textColor="@color/default_9095a2" />
-    </RelativeLayout>
+        <Button
+            android:id="@+id/cancel_action"
+            android:layout_width="match_parent"
+            android:layout_height="53.3333333dp"
+            android:layout_alignParentBottom="true"
+            android:text="cancel"
+            android:textSize="18.666667sp"
+            android:textColor="@color/default_9095a2" />
 </LinearLayout>

@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void grantCameraPermission() {
         ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.CAMERA},
+                new String[]{Manifest.permission.RECORD_AUDIO},
                 PERMISSIONS_REQUEST_CAMERA);
     }
 
     private void checkCameraPermission() {
         int permissionCheck = ContextCompat.checkSelfPermission(this,
-                Manifest.permission.CAMERA);
+                Manifest.permission.RECORD_AUDIO);
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
             PermissionGranted();
         } else {

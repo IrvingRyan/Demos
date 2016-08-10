@@ -4,13 +4,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.irvingryan.okhttpdemo.framework.base.BaseActivity;
 import com.irvingryan.okhttpdemo.http.APIManager;
 import com.irvingryan.okhttpdemo.http.HttpsListener;
+import com.irvingryan.okhttpdemo.http.HttpsRequest;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,13 +20,10 @@ import butterknife.ButterKnife;
 public class SendOTPActivity extends BaseActivity implements View.OnClickListener {
     //    private ActiveDialog activeDialog;
     private static final int WHAT_REQUEST_OTP = 0x004;
-    @Bind(R.id.country_code)
-    TextView countryCode;
-    @Bind(R.id.edit_number)
-    EditText editNumber;
     @Bind(R.id.active_service)
     Button activeService;
-    private boolean hasSim;
+    @Bind(R.id.cancel_action)
+    Button cancelAction;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +36,7 @@ public class SendOTPActivity extends BaseActivity implements View.OnClickListene
 
     private void init() {
         activeService.setOnClickListener(this);
+        cancelAction.setOnClickListener(this);
     }
 
 
@@ -58,10 +55,10 @@ public class SendOTPActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.active_service:
-                SendOTP sendOTP = new SendOTP();
-                sendOTP.setUserId(countryCode.getText().toString() + editNumber.getText().toString());
-                sendOTP.setMethod("SMS");
-                APIManager.getInstance().requestToken(WHAT_REQUEST_OTP, sendOTP, httpsListener, false);
+                APIManager.getInstance().requestToken(WHAT_REQUEST_OTP, null, httpsListener, false);
+                break;
+            case R.id.cancel_action:
+                HttpsRequest.getInstance().cancel(WHAT_REQUEST_OTP);
                 break;
         }
     }
@@ -93,6 +90,11 @@ public class SendOTPActivity extends BaseActivity implements View.OnClickListene
 
                 showToast(getString(R.string.request_otp_failure_tips));
             }
+        }
+
+        @Override
+        public void onCanceled(int what) {
+
         }
 
     };

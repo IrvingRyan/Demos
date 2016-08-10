@@ -3,6 +3,8 @@ package com.irvingryan.okhttpdemo.http;
 import android.util.Log;
 
 import java.io.IOException;
+import java.net.SocketException;
+import java.util.WeakHashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -25,9 +27,11 @@ public class HttpsRequest {
     private static HttpsRequest instance;
     private OkHttpClient client;
     private Executor executor= Executors.newFixedThreadPool(3);
+    private WeakHashMap<Integer,Call> callMap=new WeakHashMap<>();
     private static final int CONNECT_TIME_OUT = 20;
     private static final int READ_TIME_OUT = 20;
     private static final int WRITE_TIME_OUT = 20;
+    private Call call;
 
     private HttpsRequest(){
     }
@@ -103,9 +107,17 @@ public class HttpsRequest {
     }
     public void post(final int what, final Request request, final HttpsListener httpsListener){
         Log.i(TAG,"main thread id is "+Thread.currentThread().getId());
-        getOkHttpClient().newCall(request).enqueue(new Callback() {
+        call = getOkHttpClient().newCall(request);
+        callMap.put(what,call);
+        call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                if (e.getMessage().equals("Canceled")||e instanceof SocketException||e.getMessage().contains("SSL handshake aborted")){
+                    //manual cancel
+                    //do nothing
+                    e.printStackTrace();
+                    return;
+                }
                 Log.i(TAG,"callback thread id is "+Thread.currentThread().getId());
                 sendFailedResponse(e,httpsListener,what);
 //                Log.i(TAG, "request failed response message== " + call.request().body() + " response body ==");
@@ -125,5 +137,19 @@ public class HttpsRequest {
 //                httpsListener.onSuccess(what, response);
             }
         });
+    }
+    public void cancel(int what){
+        Call call1=null;
+        if (callMap!=null)
+            call1=callMap.get(what);
+        if (call1!=null)
+            call1.cancel();
+    }
+    public void cancelAll(){
+        for (Call call:callMap.values()){
+            if (call!=null)
+                call.cancel();
+        }
+
     }
 }
