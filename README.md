@@ -21,6 +21,8 @@
 > 对是否开启权限返回信息进行处理
 
 ## RecyclerViewDemo ##
+学习地址
+[http://blog.csdn.net/lmj623565791/article/details/45059587](http://blog.csdn.net/lmj623565791/article/details/45059587)
 > RecyclerView的基本使用
 
 > RecyclerView相对于ListView、GridView的优点
