@@ -10,27 +10,30 @@
     tools:context="com.irvingryan.okhttpdemo.MainActivity">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/get"
-        android:text="Get" />
-    <Button
-        android:layout_below="@+id/get"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/post"
-        android:text="post" />
+        android:text="Get" />
+
     <Button
+        android:id="@+id/post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/get"
+        android:text="post" />
+
+    <Button
+        android:id="@+id/cancelAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:id="@+id/cancelAll"
         android:text="Cancel" />
+
     <TextView
-        android:layout_below="@+id/post"
         android:id="@+id/response_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1234556"/>
+        android:layout_below="@+id/post"
+        android:text="1234556" />
 
 </RelativeLayout>

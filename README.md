@@ -19,3 +19,13 @@
 > 开启权限
 
 > 对是否开启权限返回信息进行处理
+
+## RecyclerViewDemo ##
+> RecyclerView的基本使用
+
+> RecyclerView相对于ListView、GridView的优点
+
+- 解耦
+- 简单实现瀑布流
+- 增加，减少时可以设置动画
+- 可扩展性强，很多方法都能自定义
