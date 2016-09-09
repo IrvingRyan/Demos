@@ -57,6 +57,7 @@ public class HttpsRequest {
                     .connectTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)
                     .readTimeout(READ_TIME_OUT, TimeUnit.SECONDS)
                     .writeTimeout(WRITE_TIME_OUT, TimeUnit.SECONDS)
+                    .addInterceptor(new MyInterceptor())
                     .build();
         }
         return client;
