@@ -8,8 +8,6 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,27 +23,38 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
         setContentView(R.layout.activity_main);
         surfaceView = (SurfaceView) findViewById(R.id.surface_view);
         surfaceHolder = surfaceView.getHolder();
-        surfaceHolder.setFixedSize(200, 200); // 预览大小設置
+        surfaceHolder.setFixedSize(720, 720); // 预览大小設置
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         surfaceHolder.addCallback(this);
-        initCamera();
+
     }
 
-    public void initCamera(){
+    public void initCamera(SurfaceHolder holder){
         try {
             camera = Camera.open(0);
-            camera.setPreviewDisplay(surfaceHolder);
+            camera.setPreviewDisplay(holder);
             //设置摄像头的参数
             Camera.Parameters parameters = camera.getParameters();
-            parameters.setPreviewSize(200,200);
-            parameters.setPictureSize(200,200);
+            parameters.setPreviewSize(720,720);
+            parameters.setPictureSize(720,720);
             parameters.setPreviewFormat(ImageFormat.NV21);
-            camera.setDisplayOrientation(90);
-            parameters.setRotation(90);
+//            camera.setDisplayOrientation(90);
+//            parameters.setRotation(90);
 
             //获取摄像头致辞的数据格式
             List<Integer> supportedPreviewFormats = parameters.getSupportedPreviewFormats();
             Log.i(""," supportedPreviewFormats  = "+supportedPreviewFormats.toString());
+
+            List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
+            for (Camera.Size size:supportedPreviewSizes){
+                Log.i("supportedPreviewSizes"," height:"+size.height +" width:"+size.width);
+            }
+
+            List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
+            for (Camera.Size size:supportedPictureSizes){
+                Log.i("supportedPictureSizes"," height:"+size.height +" width:"+size.width);
+
+            }
             camera.setParameters(parameters);
             camera.setPreviewCallback(this);
             camera.startPreview();
@@ -63,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
+        initCamera(holder);
     }
 
     @Override
