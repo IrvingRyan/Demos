@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
         setContentView(R.layout.activity_main);
         surfaceView = (SurfaceView) findViewById(R.id.surface_view);
         surfaceHolder = surfaceView.getHolder();
-        surfaceHolder.setFixedSize(720, 720); // 预览大小設置
+        surfaceHolder.setFixedSize(720, 720); // 预览大小設置 这个很重要 如果大小不对 很可能无法显示
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         surfaceHolder.addCallback(this);
 

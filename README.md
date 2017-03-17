@@ -34,3 +34,6 @@
 
 ## UnitTestDemo ##
 > 还待完善
+
+## CameraDemo ##
+> 实现相机的简单调用
