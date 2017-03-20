@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import android.view.SurfaceView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
@@ -19,22 +21,19 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements Camera.PreviewCallback,SurfaceHolder.Callback{
 
     private Camera camera;
-    private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
-    private int height=720;
-    private int weight=720;
+    private int height=240;
+    private int width =320;
     private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        surfaceView = (SurfaceView) findViewById(R.id.surface_view);
-        imageView = (ImageView) findViewById(R.id.image);
-        surfaceHolder = surfaceView.getHolder();
-        surfaceHolder.setFixedSize(height, weight); // 预览大小設置 这个很重要 如果大小不对 很可能无法显示
-        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        surfaceHolder.addCallback(this);
+        LinearLayout root = (LinearLayout) findViewById(R.id.root);
+        CameraPreview cameraPreview = new CameraPreview(this, Camera.open());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(200, 200);
+        root.addView(cameraPreview,layoutParams);
 
     }
 
@@ -48,15 +47,15 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
                 Log.i("cameraInfo"," facing = "+cameraInfo.facing+" orientation ="+cameraInfo.orientation+" canDisableShutterSound ="+cameraInfo.canDisableShutterSound);
             }
 
-            camera = Camera.open(0);
+            camera = Camera.open();
 //            camera.setPreviewDisplay(holder);
             //设置摄像头的参数
             Camera.Parameters parameters = camera.getParameters();
-            parameters.setPreviewSize(height,weight);
-            parameters.setPictureSize(height,weight);
+            parameters.setPreviewSize(width, height);
+            parameters.setPictureSize(width, height);
             parameters.setPreviewFormat(ImageFormat.NV21);
-            camera.setDisplayOrientation(0);
-//            parameters.setRotation(90);
+            camera.setDisplayOrientation(90);
+            parameters.setRotation(90);
 
             //获取摄像头支持的数据格式
             List<Integer> supportedPreviewFormats = parameters.getSupportedPreviewFormats();
