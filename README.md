@@ -41,6 +41,7 @@
 - 将相机获取到的数据进行解析转化为Bitmap
 - 基于Bitmap增加时间戳（可用于视频录制App）
 - 使用ImageView显示连续的Bitmap图片，有视频效果，但是会卡顿，不推荐。
+- 封装根据高度变化的CameraPreview，以调节照相机的比例。
 
 ## AnnotationDemo
 
