@@ -1,4 +1,4 @@
-package com.github.ir.camerademo;
+package com.github.ir.camerademo.view;
 
 
 import java.io.IOException;
@@ -18,11 +18,14 @@ import android.hardware.Camera.Size;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import com.github.ir.camerademo.util.BitmapUtills;
+
 /**
  * Created by yanwentao on 2017/3/21.
  */
 
-public class GameDisplay extends SurfaceView implements SurfaceHolder.Callback,
+public class SurfaceDisplay extends SurfaceView implements SurfaceHolder.Callback,
         Camera.PreviewCallback{
     public final static String TAG="GameDisplay";
 
@@ -49,7 +52,7 @@ public class GameDisplay extends SurfaceView implements SurfaceHolder.Callback,
     private Timer sampleTimer;
     private TimerTask sampleTask;
 
-    public GameDisplay(Context context,int screenWidth,int screenHeight) {
+    public SurfaceDisplay(Context context, int screenWidth, int screenHeight) {
         super(context);
         gHolder=this.getHolder();
         gHolder.addCallback(this);
@@ -131,7 +134,8 @@ public class GameDisplay extends SurfaceView implements SurfaceHolder.Callback,
         synchronized (gHolder)
         {
             Canvas canvas = this.getHolder().lockCanvas();
-            canvas.drawBitmap(gBitmap, null,gRect, null);
+            Bitmap timeStamp = BitmapUtills.addTimeStamp(gBitmap);
+            canvas.drawBitmap(timeStamp, null,gRect, null);
             //canvas.drawBitmap(textureBuffer, 0, screenWidth, 0, 0, screenWidth, screenHeight, false, null);
             this.getHolder().unlockCanvasAndPost(canvas);
         }

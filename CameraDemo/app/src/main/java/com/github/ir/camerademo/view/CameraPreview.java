@@ -1,4 +1,4 @@
-package com.github.ir.camerademo;
+package com.github.ir.camerademo.view;
 
 import android.content.Context;
 import android.hardware.Camera;

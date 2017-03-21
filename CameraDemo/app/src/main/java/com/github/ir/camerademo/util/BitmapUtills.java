@@ -1,4 +1,4 @@
-package com.github.ir.camerademo;
+package com.github.ir.camerademo.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,7 +24,7 @@ public class BitmapUtills {
         canvas.drawBitmap(bitmap,0,0,new Paint());
         Paint paint = new Paint();
         paint.setColor(Color.RED);
-        paint.setTextSize(18);
+        paint.setTextSize(12);
         canvas.drawText(format,20,20,paint);
         return b;
     }
