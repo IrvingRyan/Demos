@@ -12,7 +12,7 @@ import java.util.List;
  * Created by yanwentao on 2017/3/20.
  */
 
-public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback ,Camera.PreviewCallback{
+public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
 
     private static final String TAG = "CameraPreview";
 
@@ -21,6 +21,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     private Camera mCamera;
     private List<Camera.Size> mSupportedPreviewSizes;
     private Camera.Size mPreviewSize;
+    private Camera.PreviewCallback previewCallback;
 
     public CameraPreview(Context context, Camera camera) {
         super(context);
@@ -72,7 +73,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             mCamera.setParameters(parameters);
             mCamera.setDisplayOrientation(90);
             mCamera.setPreviewDisplay(mHolder);
-            mCamera.setPreviewCallback(this);
+            if (previewCallback!=null)
+                mCamera.setPreviewCallback(previewCallback);
             mCamera.startPreview();
 
         } catch (Exception e){
@@ -136,8 +138,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         return optimalSize;
     }
 
-    @Override
-    public void onPreviewFrame(byte[] data, Camera camera) {
-        Log.i(TAG,"onPreviewFrame");
+    public void addPreviewCallback(Camera.PreviewCallback previewCallback){
+        this.previewCallback=previewCallback;
     }
+
 }

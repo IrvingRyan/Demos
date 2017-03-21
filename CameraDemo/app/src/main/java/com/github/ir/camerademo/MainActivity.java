@@ -2,29 +2,32 @@ package com.github.ir.camerademo;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
+import android.graphics.SurfaceTexture;
 import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
-import android.view.View;
+import android.view.TextureView;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements Camera.PreviewCallback,SurfaceHolder.Callback{
+public class MainActivity extends AppCompatActivity implements Camera.PreviewCallback,TextureView.SurfaceTextureListener{
+
+    private String TAG="MainActivity";
 
     private Camera camera;
     private SurfaceHolder surfaceHolder;
     private int height=240;
     private int width =320;
-    private ImageView imageView;
+    private TextureView textureView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +35,14 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
         setContentView(R.layout.activity_main);
         LinearLayout root = (LinearLayout) findViewById(R.id.root);
         CameraPreview cameraPreview = new CameraPreview(this, Camera.open());
+        cameraPreview.addPreviewCallback(this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(200, 200);
         root.addView(cameraPreview,layoutParams);
+        textureView = new TextureView(this);
+        textureView.setSurfaceTextureListener(this);
+        textureView.setBackgroundColor(Color.BLACK);
+        textureView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        root.addView(textureView,layoutParams);
 
     }
 
@@ -92,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
     }
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
+        Log.i(TAG,"onPreviewFrame");
         Camera.Parameters parameters = camera.getParameters();
         Camera.Size previewSize = parameters.getPreviewSize();
         //以下操作将byte数据转换为bitmap 并显示
@@ -102,22 +112,27 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
         Bitmap bitmap = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size());
 
         Bitmap timeStamp = BitmapUtills.addTimeStamp(bitmap);
-        imageView.setImageBitmap(timeStamp);
+
+    }
+
+
+    @Override
+    public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
 
     }
 
     @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-        initCamera(holder);
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
 
     }
 
     @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-        destoryCamera();
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
+        return false;
+    }
+
+    @Override
+    public void onSurfaceTextureUpdated(SurfaceTexture surface) {
+
     }
 }
