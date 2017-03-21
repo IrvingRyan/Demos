@@ -24,25 +24,20 @@ public class MainActivity extends AppCompatActivity implements Camera.PreviewCal
     private String TAG="MainActivity";
 
     private Camera camera;
-    private SurfaceHolder surfaceHolder;
     private int height=240;
     private int width =320;
-    private TextureView textureView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LinearLayout root = (LinearLayout) findViewById(R.id.root);
-        CameraPreview cameraPreview = new CameraPreview(this, Camera.open());
-        cameraPreview.addPreviewCallback(this);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(200, 200);
-        root.addView(cameraPreview,layoutParams);
-        textureView = new TextureView(this);
-        textureView.setSurfaceTextureListener(this);
-        textureView.setBackgroundColor(Color.BLACK);
-        textureView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        root.addView(textureView,layoutParams);
+//        CameraPreview cameraPreview = new CameraPreview(this, Camera.open());
+//        cameraPreview.addPreviewCallback(this);
+//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(200, 200);
+//        root.addView(cameraPreview,layoutParams);
+        GameDisplay gameDisplay = new GameDisplay(this, 200, 200);
+        root.addView(gameDisplay);
 
     }
 
