@@ -38,10 +38,11 @@
 ## CameraDemo ##
 > 实现相机的简单调用
 
-- 将相机获取到的数据进行解析转化为Bitmap
-- 基于Bitmap增加时间戳（可用于视频录制App）
-- 使用ImageView显示连续的Bitmap图片，有视频效果，但是会卡顿，不推荐。
-- 封装根据高度变化的CameraPreview，以调节照相机的比例。
+- 用SurfaceView预览相机，SurfaceView不能做缩放位移等操作。
+
+
+- 用TextureView预览相机，直接显示图像时可用，TextureView可实现图像缩放，变换等操作。
+- 用SurfaceTexture实现，可以对图像做完处理后再显示处理来，流畅性高。
 
 ## AnnotationDemo
 
