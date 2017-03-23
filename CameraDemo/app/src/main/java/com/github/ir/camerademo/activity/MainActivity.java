@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         $(R.id.surface_view).setOnClickListener(this);
         $(R.id.surface_texture).setOnClickListener(this);
         $(R.id.texture_view).setOnClickListener(this);
+        $(R.id.ffmpeg).setOnClickListener(this);
 
     }
 
@@ -146,6 +147,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.surface_view:
                 startActivity(new Intent(this,SurfaceViewActivity.class));
+                break;
+            case R.id.ffmpeg:
+                startActivity(new Intent(this,FFmpegActivity.class));
                 break;
         }
     }

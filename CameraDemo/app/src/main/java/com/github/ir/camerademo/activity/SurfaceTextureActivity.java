@@ -1,11 +1,9 @@
 package com.github.ir.camerademo.activity;
 
-import android.hardware.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
-import com.github.ir.camerademo.view.CameraPreview;
 import com.github.ir.camerademo.view.SurfaceDisplay;
 
 public class SurfaceTextureActivity extends AppCompatActivity {

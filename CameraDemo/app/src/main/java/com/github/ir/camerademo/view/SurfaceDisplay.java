@@ -19,6 +19,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.github.ir.camerademo.util.BitmapUtills;
+import com.github.ir.camerademo.util.SizeUtil;
 
 /**
  * Created by yanwentao on 2017/3/21.
