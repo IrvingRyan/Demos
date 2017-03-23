@@ -25,7 +25,9 @@
         </activity>
         <activity android:name=".activity.SurfaceViewActivity" />
         <activity android:name=".activity.TextureViewActivity" />
-        <activity android:name=".activity.SurfaceTextureActivity"></activity>
+        <activity android:name=".activity.SurfaceTextureActivity" />
+        <activity android:name=".activity.FFmpegActivity" />
+        <activity android:name=".activity.BaseActivity"></activity>
     </application>
 
 </manifest>

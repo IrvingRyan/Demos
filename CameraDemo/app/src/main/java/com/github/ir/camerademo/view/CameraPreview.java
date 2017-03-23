@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.github.ir.camerademo.util.SizeUtil;
+
 import java.util.List;
 
 /**
@@ -92,7 +94,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         final int height = resolveSize(getSuggestedMinimumHeight(), heightMeasureSpec);
 
         if (mSupportedPreviewSizes != null) {
-            mPreviewSize = getOptimalPreviewSize(mSupportedPreviewSizes, width, height);
+            mPreviewSize = SizeUtil.getOptimalPreviewSize(mSupportedPreviewSizes, width, height);
+//            mPreviewSize = getOptimalPreviewSize(mSupportedPreviewSizes, width, height);
         }
 
         float ratio;

@@ -7,23 +7,48 @@
     android:orientation="vertical"
     android:padding="10dp"
     tools:context="com.github.ir.camerademo.activity.MainActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/surface_view"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.相机的简单调用及预览"/>
+        <Button
+            android:id="@+id/surface_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="SurfaceView"/>
+        <Button
+            android:id="@+id/texture_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="TextureView"/>
+        <Button
+            android:id="@+id/surface_texture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="SurfaceTexture"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="SurfaceView"/>
-    <Button
-        android:id="@+id/texture_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="TextureView"/>
-    <Button
-        android:id="@+id/surface_texture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="SurfaceTexture"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.拍摄视频的一些简单处理方式"/>
+        <Button
+            android:id="@+id/ffmpeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FFmpeg"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
 </LinearLayout>
