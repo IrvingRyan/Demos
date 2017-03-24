@@ -3,7 +3,6 @@ package com.github.ir.camerademo.activity;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -33,7 +32,6 @@ private String TAG="FFmpegActivity";
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
-        Log.i(TAG,"onPreviewFrame"+ data);
         if (VideoProcessor.recording){
             VideoProcessor.getInstance(this).recording(data);
         }
@@ -53,8 +51,11 @@ private String TAG="FFmpegActivity";
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         Camera.Parameters parameters = mCamera.getParameters();
-        Camera.Size optimalPreviewSize = SizeUtil.getOptimalPreviewSize(parameters.getSupportedPreviewSizes(), width, height);
-        parameters.setPreviewSize(optimalPreviewSize.width,optimalPreviewSize.height);
+//        Camera.Size optimalPreviewSize = SizeUtil.getOptimalPreviewSize(parameters.getSupportedPreviewSizes(), width, height);
+        Camera.Size largerSize = SizeUtil.getLargerSize(parameters.getSupportedPreviewSizes(), VideoProcessor.getInstance(this).imageWidth, VideoProcessor.getInstance(this).imageHeight);
+        VideoProcessor.getInstance(this).imageWidth=largerSize.width;
+        VideoProcessor.getInstance(this).imageHeight=largerSize.height;
+        parameters.setPreviewSize(largerSize.width,largerSize.height);
         mCamera.setParameters(parameters);
         mCamera.setPreviewCallback(this);
         mCamera.startPreview();
@@ -73,9 +74,13 @@ private String TAG="FFmpegActivity";
         switch (v.getId()){
             case R.id.start:
                 VideoProcessor.getInstance(this).startRecorder();
+                $(R.id.start).setEnabled(false);
+                $(R.id.stop).setEnabled(true);
                 break;
             case R.id.stop:
-                VideoProcessor.getInstance(this).startRecorder();
+                VideoProcessor.getInstance(this).stopRecording();
+                $(R.id.start).setEnabled(true);
+                $(R.id.stop).setEnabled(false);
                 break;
         }
     }

@@ -1,11 +1,6 @@
 package com.github.ir.camerademo.view;
 
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -19,7 +14,11 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.github.ir.camerademo.util.BitmapUtills;
-import com.github.ir.camerademo.util.SizeUtil;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by yanwentao on 2017/3/21.
@@ -133,9 +132,11 @@ public class SurfaceDisplay extends SurfaceView implements SurfaceHolder.Callbac
         gBitmap.setPixels(textureBuffer, 0, previewWidth, 0, 0, previewWidth, previewHeight);
         Canvas canvas = this.getHolder().lockCanvas();
         Bitmap timeStamp = BitmapUtills.addTimeStamp(gBitmap);
-        canvas.drawBitmap(timeStamp, null, gRect, null);
-        //canvas.drawBitmap(textureBuffer, 0, screenWidth, 0, 0, screenWidth, screenHeight, false, null);
-        this.getHolder().unlockCanvasAndPost(canvas);
+        if (canvas!=null){
+            canvas.drawBitmap(timeStamp, null, gRect, null);
+            //canvas.drawBitmap(textureBuffer, 0, screenWidth, 0, 0, screenWidth, screenHeight, false, null);
+            this.getHolder().unlockCanvasAndPost(canvas);
+        }
 
     }
 

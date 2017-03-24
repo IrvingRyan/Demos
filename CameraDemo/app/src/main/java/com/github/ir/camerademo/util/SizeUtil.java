@@ -2,6 +2,8 @@ package com.github.ir.camerademo.util;
 
 import android.hardware.Camera;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -44,5 +46,24 @@ public class SizeUtil {
         }
 
         return optimalSize;
+    }
+
+    public static Camera.Size getLargerSize(List<Camera.Size> sizes,int imageWidth,int imageHeight) {
+        // Sort the list in ascending order
+        Collections.sort(sizes, new Comparator<Camera.Size>() {
+
+            public int compare(final Camera.Size a, final Camera.Size b) {
+                return a.width * a.height - b.width * b.height;
+            }
+        });
+
+        // Pick the first preview size that is equal or bigger, or pick the last (biggest) option if we cannot
+        // reach the initial settings of imageWidth/imageHeight.
+        for (int i = 0; i < sizes.size(); i++) {
+            if ((sizes.get(i).width >= imageWidth && sizes.get(i).height >= imageHeight) || i == sizes.size() - 1) {
+                return sizes.get(i);
+            }
+        }
+        return null;
     }
 }
