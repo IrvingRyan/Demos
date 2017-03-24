@@ -44,6 +44,12 @@
 - 用TextureView预览相机，直接显示图像时可用，TextureView可实现图像缩放，变换等操作。
 - 用SurfaceTexture实现，可以对图像做完处理后再显示处理来，流畅性高。
 
+
+> 处理相机获取的数据，保存或者上传
+
+- 使用JavaCV保存视频
+
+
 ## AnnotationDemo
 
 > 实现注解的使用
