@@ -38,6 +38,8 @@
 ## CameraDemo ##
 > 实现相机的简单调用
 
+- 直接调用系统相机，处理返回的数据。
+
 - 用SurfaceView预览相机，SurfaceView不能做缩放位移等操作。
 
 
