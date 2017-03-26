@@ -16,7 +16,6 @@ import java.nio.ByteBuffer;
  */
 
 public class VideoProcessor {
-    private File ffmpeg_link = new File(Environment.getExternalStorageDirectory(), "stream.mp4");
 
     private String TAG="VideoProcessor";
     /* The number of seconds in the continuous record loop (or 0 to disable loop). */
