@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.irvingryan.recyclerviewdemo.ClickableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:clickable="false"
+        android:layout_below="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</com.irvingryan.recyclerviewdemo.ClickableRelativeLayout>
