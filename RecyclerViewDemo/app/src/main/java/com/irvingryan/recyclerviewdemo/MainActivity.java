@@ -3,7 +3,6 @@ package com.irvingryan.recyclerviewdemo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -29,17 +28,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new SizedLayoutManager(this,4));
 //        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.HORIZONTAL));
-        recyclerView.setAdapter(mAdapter=new MyAdapter(this,mDatas));
+//        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.HORIZONTAL));
+        recyclerView.setAdapter(new MyAdapter(this,mDatas));
 //        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
-        recyclerView.addItemDecoration(new DividerGridItemDecoration(this));
+//        recyclerView.addItemDecoration(new DividerGridItemDecoration(this));
     }
     protected void initData()
     {
         mDatas = new ArrayList<>();
-        for (int i = 'A'; i < 'z'; i++)
+        for (int i = 'A'; i < 'F'; i++)
         {
             mDatas.add("" + (char) i);
         }
